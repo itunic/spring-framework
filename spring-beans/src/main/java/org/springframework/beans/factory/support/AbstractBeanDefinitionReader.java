@@ -85,7 +85,9 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 		this.registry = registry;
 
 		// Determine ResourceLoader to use.
+		//确定资源加载器
 		if (this.registry instanceof ResourceLoader) {
+			//ApplicationContext 采用此资源加载器
 			this.resourceLoader = (ResourceLoader) this.registry;
 		}
 		else {
@@ -93,6 +95,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 		}
 
 		// Inherit Environment if possible
+		//如果有环境变量设置，则继承环境变量设置
 		if (this.registry instanceof EnvironmentCapable) {
 			this.environment = ((EnvironmentCapable) this.registry).getEnvironment();
 		}
