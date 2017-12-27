@@ -79,34 +79,52 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
 	/**
 	 * Indicates that the validation should be disabled.
+	 * 禁用验证
 	 */
 	public static final int VALIDATION_NONE = XmlValidationModeDetector.VALIDATION_NONE;
 
 	/**
 	 * Indicates that the validation mode should be detected automatically.
+	 * 自动检测验证模式
 	 */
 	public static final int VALIDATION_AUTO = XmlValidationModeDetector.VALIDATION_AUTO;
 
 	/**
 	 * Indicates that DTD validation should be used.
+	 * DTD验证
 	 */
 	public static final int VALIDATION_DTD = XmlValidationModeDetector.VALIDATION_DTD;
 
 	/**
 	 * Indicates that XSD validation should be used.
+	 * XSD验证
 	 */
 	public static final int VALIDATION_XSD = XmlValidationModeDetector.VALIDATION_XSD;
 
 
-	/** Constants instance for this class */
+	/** Constants instance for this class *
+	 * 将当前类的常量存储到Map中
+	 */
 	private static final Constants constants = new Constants(XmlBeanDefinitionReader.class);
-
+	/**
+	 * 默认是自动验证模式
+	 */
 	private int validationMode = VALIDATION_AUTO;
 
+	/**
+	 * 命名空间识别
+	 */
 	private boolean namespaceAware = false;
 
+	/**
+	 * 文档读取类
+	 * 默认 DefaultBeanDefinitionDocumentReader.class
+	 */
 	private Class<?> documentReaderClass = DefaultBeanDefinitionDocumentReader.class;
 
+	/**
+	 * 定义快速失败
+	 */
 	private ProblemReporter problemReporter = new FailFastProblemReporter();
 
 	private ReaderEventListener eventListener = new EmptyReaderEventListener();
@@ -294,8 +312,10 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
 	/**
 	 * Load bean definitions from the specified XML file.
+	 * 从指定的XML加载bean的定义
 	 * @param resource the resource descriptor for the XML file
 	 * @return the number of bean definitions found
+	 * @return 发现bean的个数
 	 * @throws BeanDefinitionStoreException in case of loading or parsing errors
 	 */
 	@Override
