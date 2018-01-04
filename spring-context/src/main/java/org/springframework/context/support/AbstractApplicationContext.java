@@ -518,6 +518,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			prepareRefresh();
 
 			// Tell the subclass to refresh the internal bean factory.
+			//通知子类刷新内部的Bean Factory
+			//包含操作 定位资源位置，加载，解析，映射。
+			//类似 XmlBeanFactory操作
 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
 			// Prepare the bean factory for use in this context.
@@ -605,6 +608,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 * <p>Replace any stub property sources with actual instances.
 	 * @see org.springframework.core.env.PropertySource.StubPropertySource
 	 * @see org.springframework.web.context.support.WebApplicationContextUtils#initServletPropertySources
+	 *
 	 */
 	protected void initPropertySources() {
 		// For subclasses: do nothing by default.
@@ -613,6 +617,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	/**
 	 * Tell the subclass to refresh the internal bean factory.
 	 * @return the fresh BeanFactory instance
+	 * @return 新的BeanFactory实例
 	 * @see #refreshBeanFactory()
 	 * @see #getBeanFactory()
 	 */

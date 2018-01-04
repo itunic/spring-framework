@@ -126,6 +126,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 	 * @see org.springframework.core.io.support.PathMatchingResourcePatternResolver
 	 */
 	public void setResourceLoader(@Nullable ResourceLoader resourceLoader) {
+		//AbstractXmlApplicationContext this
 		this.resourceLoader = resourceLoader;
 	}
 
@@ -224,6 +225,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 			try {
 				Resource[] resources = ((ResourcePatternResolver) resourceLoader).getResources(location);
 				int loadCount = loadBeanDefinitions(resources);
+				// acturalResources is null
 				if (actualResources != null) {
 					for (Resource resource : resources) {
 						actualResources.add(resource);
